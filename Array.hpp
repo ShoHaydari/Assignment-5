@@ -3,30 +3,22 @@
 #define Array_hpp
 template <class T>
 class Array{
-    friend std::ostream& operator<<(std::ostream&, const T&);
-    friend std::istream& operator>>(std::istream&,T&);
+  
 public:
-    explicit Array (int =10);
+    Array(int=10);
     Array(const Array&);
     ~Array();
-    size_t getSize() const;
+    size_t getSize()const;
+
+    void add(const T&);
     
-    const T& operator=(const T&);
-    bool operator==(const T&) const;
-    
-    bool operator != (const T&) const;
-    
-    int& operator[] (int);
-    
-    int operator[](int) const;
-    
-    
-    
+    T& get(size_t);
     
 private:
+    int elem;
     size_t size;
     T *ptr;
-    
 };
+
 
 #endif /* Array_hpp */
